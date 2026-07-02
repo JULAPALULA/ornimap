@@ -2,7 +2,7 @@
   <div class="layout">
     <header>
       <h1>Avistamientos de Aves en España</h1>
-      <p class="subtitle">Últimos {{ daysBack }} días · eBird API</p>
+      <p class="subtitle">Últimos {{ daysBack }} días</p>
       <div class="filters">
         <label>
           Comunidad Autónoma
