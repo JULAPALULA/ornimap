@@ -1,0 +1,21 @@
+[
+  { "id": "andalucia",         "name": "Andalucía",            "ebird_code": "ES-AN", "lat": 37.5,  "lon": -4.7  },
+  { "id": "aragon",             "name": "Aragón",               "ebird_code": "ES-AR", "lat": 41.3,  "lon": -0.9  },
+  { "id": "asturias",           "name": "Asturias",             "ebird_code": "ES-AS", "lat": 43.3,  "lon": -5.9  },
+  { "id": "baleares",           "name": "Islas Baleares",       "ebird_code": "ES-IB", "lat": 39.6,  "lon":  2.9  },
+  { "id": "canarias",           "name": "Canarias",             "ebird_code": "ES-CN", "lat": 28.3,  "lon": -16.5 },
+  { "id": "cantabria",          "name": "Cantabria",            "ebird_code": "ES-CB", "lat": 43.2,  "lon": -4.0  },
+  { "id": "castilla_la_mancha", "name": "Castilla-La Mancha",   "ebird_code": "ES-CM", "lat": 39.5,  "lon": -3.0  },
+  { "id": "castilla_y_leon",    "name": "Castilla y León",      "ebird_code": "ES-CL", "lat": 41.7,  "lon": -4.7  },
+  { "id": "cataluna",           "name": "Cataluña",             "ebird_code": "ES-CT", "lat": 41.8,  "lon":  1.5  },
+  { "id": "ceuta",              "name": "Ceuta",                "ebird_code": "ES-CE", "lat": 35.9,  "lon": -5.3  },
+  { "id": "extremadura",        "name": "Extremadura",          "ebird_code": "ES-EX", "lat": 39.2,  "lon": -6.1  },
+  { "id": "galicia",            "name": "Galicia",              "ebird_code": "ES-GA", "lat": 42.7,  "lon": -7.9  },
+  { "id": "madrid",             "name": "Madrid",               "ebird_code": "ES-MD", "lat": 40.4,  "lon": -3.7  },
+  { "id": "melilla",            "name": "Melilla",              "ebird_code": "ES-ML", "lat": 35.3,  "lon": -2.9  },
+  { "id": "murcia",             "name": "Murcia",               "ebird_code": "ES-MC", "lat": 38.0,  "lon": -1.5  },
+  { "id": "navarra",            "name": "Navarra",              "ebird_code": "ES-NC", "lat": 42.7,  "lon": -1.6  },
+  { "id": "pais_vasco",         "name": "País Vasco",           "ebird_code": "ES-PV", "lat": 43.0,  "lon": -2.6  },
+  { "id": "rioja",              "name": "La Rioja",             "ebird_code": "ES-RI", "lat": 42.3,  "lon": -2.5  },
+  { "id": "valencia",           "name": "Comunidad Valenciana", "ebird_code": "ES-VC", "lat": 39.5,  "lon": -0.5  }
+]
