@@ -61,7 +61,7 @@ export function useAppSetup(
 
     const [, geoRes] = await Promise.all([
       fetchCommunities(),
-      fetch('/spain-communities.geojson'),
+      fetch(`${import.meta.env.BASE_URL}spain-communities.geojson`),
     ])
     geojsonData = await geoRes.json() as FeatureCollection
 
