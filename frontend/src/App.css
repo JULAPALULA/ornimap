@@ -233,6 +233,10 @@ main {
   font-size: 0.9rem;
 }
 
+.scroll-hint {
+  display: none;
+}
+
 .spinner {
   width: 40px;
   height: 40px;
@@ -338,6 +342,32 @@ main {
   .map-wrap {
     flex: none;
     height: 55vh;
+  }
+
+  .scroll-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
+    z-index: 1001;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(26, 37, 47, 0.75);
+    color: #fff;
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    animation: bob 1.6s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(4px); }
   }
 
   .panel {

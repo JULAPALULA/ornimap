@@ -73,9 +73,16 @@
           <div class="spinner"></div>
           <span>Cargando avistamientos…</span>
         </div>
+        <button
+          v-if="selectedId || selectedSpecies"
+          type="button"
+          class="scroll-hint"
+          aria-label="Ir a estadísticas"
+          @click="scrollToPanel"
+        >⌄</button>
       </div>
 
-      <aside class="panel">
+      <aside class="panel" ref="panelEl">
         <div v-if="!selectedId && !selectedSpecies" class="placeholder">
           Selecciona una comunidad autónoma o busca una especie para ver estadísticas.
         </div>
@@ -123,6 +130,11 @@ import { periodOptions, useAppSetup } from './App.ts'
 const speciesChartEl = ref<HTMLCanvasElement | null>(null)
 const dateChartEl = ref<HTMLCanvasElement | null>(null)
 const countChartEl = ref<HTMLCanvasElement | null>(null)
+const panelEl = ref<HTMLElement | null>(null)
+
+function scrollToPanel(): void {
+  panelEl.value?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 const {
   communities, allPoints, loadingAll, errorAll, daysBack, selectPeriod,
