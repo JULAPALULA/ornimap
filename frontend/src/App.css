@@ -358,7 +358,7 @@ main {
     border-radius: 50%;
     border: none;
     background: rgba(26, 37, 47, 0.75);
-    color: #fff;
+    color: #ff8d00bf;
     font-size: 1.3rem;
     line-height: 1;
     cursor: pointer;
@@ -373,7 +373,7 @@ main {
   .panel {
     max-width: none;
     flex: none;
-    
+
     border-left: none;
     border-top: 1px solid #dde;
   }
