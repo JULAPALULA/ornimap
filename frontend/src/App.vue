@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <header>
-      <h1>Avistamientos de Aves en España</h1>
+      <h1>Avistamientos de aves en España</h1>
       <p class="subtitle">Últimos {{ daysBack }} días</p>
       <div class="filters">
         <label>
@@ -10,6 +10,43 @@
             <option value="">**Todas**</option>
             <option v-for="c in communities" :key="c.id" :value="c.id">{{ c.name }}</option>
           </select>
+        </label>
+        <label>
+          Especie
+          <div class="combobox">
+            <input
+              type="text"
+              role="combobox"
+              :aria-expanded="speciesOpen"
+              aria-autocomplete="list"
+              v-model="speciesQuery"
+              @focus="openSpeciesDropdown"
+              @input="openSpeciesDropdown"
+              @keydown.esc="closeSpeciesDropdown"
+              @blur="closeSpeciesDropdown"
+              placeholder="Buscar especie…"
+              autocomplete="off"
+            />
+            <button
+              v-if="selectedSpecies"
+              type="button"
+              class="combobox-clear"
+              @mousedown.prevent="clearSpecies"
+              aria-label="Quitar filtro de especie"
+            >×</button>
+            <ul v-if="speciesOpen" class="combobox-list" role="listbox">
+              <li class="combobox-option all" role="option" @mousedown.prevent="clearSpecies">**Todas**</li>
+              <li
+                v-for="s in filteredSpeciesOptions"
+                :key="s"
+                class="combobox-option"
+                :class="{ active: s === selectedSpecies }"
+                role="option"
+                @mousedown.prevent="selectSpeciesOption(s)"
+              >{{ s }}</li>
+              <li v-if="!filteredSpeciesOptions.length" class="combobox-empty">Sin resultados</li>
+            </ul>
+          </div>
         </label>
         <div class="period-group">
           <span class="period-label">Período</span>
@@ -39,11 +76,11 @@
       </div>
 
       <aside class="panel">
-        <div v-if="!selectedId" class="placeholder">
-          Selecciona una comunidad autónoma para ver estadísticas de aves en ese territorio.
+        <div v-if="!selectedId && !selectedSpecies" class="placeholder">
+          Selecciona una comunidad autónoma o busca una especie para ver estadísticas.
         </div>
         <div v-else>
-          <h2>{{ selectedCommunity?.name }}</h2>
+          <h2>{{ [selectedCommunity?.name, selectedSpecies].filter(Boolean).join(' · ') }}</h2>
 
           <template v-if="filteredPoints.length">
             <div class="stats-row">
@@ -90,7 +127,8 @@ const countChartEl = ref<HTMLCanvasElement | null>(null)
 const {
   communities, allPoints, loadingAll, errorAll, daysBack, selectPeriod,
   selectedId, selectedCommunity, filteredPoints, speciesCount, totalIndividuals,
-  onCommunitySelect,
+  onCommunitySelect, speciesQuery, selectedSpecies, speciesOpen, filteredSpeciesOptions,
+  openSpeciesDropdown, closeSpeciesDropdown, selectSpeciesOption, clearSpecies,
 } = useAppSetup(speciesChartEl, dateChartEl, countChartEl)
 </script>
 

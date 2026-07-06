@@ -45,12 +45,102 @@ header h1 {
   gap: 4px;
 }
 
-.filters select {
+.filters select,
+.filters input[type="text"] {
+  appearance: none;
+  -webkit-appearance: none;
   padding: 4px 8px;
   border-radius: 4px;
-  border: none;
+  border: 1px solid transparent;
   height: 30px;
   min-width: 200px;
+  font: inherit;
+  background: #fff;
+  color: #1a252f;
+}
+
+.filters select {
+  padding-right: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%2334495e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 10px;
+}
+
+.filters select:focus,
+.filters input[type="text"]:focus {
+  outline: none;
+  border-color: #2980b9;
+}
+
+.combobox {
+  position: relative;
+  min-width: 200px;
+}
+
+.combobox input[type="text"] {
+  width: 100%;
+  padding-right: 26px;
+}
+
+.combobox-clear {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 2px 5px;
+  font-size: 1rem;
+  line-height: 1;
+  color: #7f8c8d;
+}
+
+.combobox-clear:hover {
+  color: #2c3e50;
+}
+
+.combobox-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  max-height: 220px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #dde;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 0.8rem;
+  color: #1a252f;
+}
+
+.combobox-option {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.combobox-option:hover,
+.combobox-option.active {
+  background: #eef3f8;
+}
+
+.combobox-option.all {
+  color: #7f8c8d;
+  font-style: italic;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2px;
+}
+
+.combobox-empty {
+  padding: 6px 10px;
+  color: #95a5a6;
+  font-style: italic;
 }
 
 .period-group {
@@ -230,7 +320,9 @@ main {
     flex: 1 1 auto;
   }
 
-  .filters select {
+  .filters select,
+  .filters input[type="text"],
+  .combobox {
     min-width: 0;
     width: 100%;
   }
