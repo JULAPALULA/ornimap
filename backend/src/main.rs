@@ -1,5 +1,5 @@
-use axum::http::Method;
-use tower_http::cors::{Any, CorsLayer};
+use axum::http::{HeaderValue, Method};
+use tower_http::cors::{AllowOrigin, CorsLayer};
 
 mod commands;
 mod models;
@@ -9,8 +9,14 @@ mod router;
 async fn main() {
     dotenvy::dotenv().ok();
 
+    let allowed_origins = [
+        //[!!!] ADD HERE ANOTHER ORIGIN
+        "https://julapalula.github.io".parse::<HeaderValue>().unwrap(),
+        "http://localhost:5173".parse::<HeaderValue>().unwrap(),
+    ];
+
     let cors = CorsLayer::new()
-        .allow_origin(Any)
+        .allow_origin(AllowOrigin::list(allowed_origins))
         .allow_methods([Method::GET]);
 
     let app = router::router().layer(cors);
