@@ -357,11 +357,12 @@ main {
     height: 36px;
     border-radius: 50%;
     border: none;
-    background: rgba(26, 37, 47, 0.75);
-    color: #ff8d00bf;
+    background: #ff8d00bf;
+    color: #fff;
     font-size: 1.3rem;
     line-height: 1;
     cursor: pointer;
+    font-weight: bold;
     animation: bob 1.6s ease-in-out infinite;
   }
 
