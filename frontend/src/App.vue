@@ -7,7 +7,7 @@
         <label>
           Comunidad Autónoma
           <select v-model="selectedId" @change="onCommunitySelect">
-            <option value="">— Todas —</option>
+            <option value="">**Todas**</option>
             <option v-for="c in communities" :key="c.id" :value="c.id">{{ c.name }}</option>
           </select>
         </label>
