@@ -374,7 +374,6 @@ main {
   .panel {
     max-width: none;
     flex: none;
-
     border-left: none;
     border-top: 1px solid #dde;
   }
